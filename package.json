@@ -16,7 +16,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "push": "sh push.sh"
+    "push": "sh git_push.sh"
   },
   "eslintConfig": {
     "extends": [
