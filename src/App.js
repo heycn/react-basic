@@ -2,15 +2,11 @@ import React from 'react'
 import './index.css'
 
 const FunctionComponent = () => {
-  const clickFn = e => {
-    e.preventDefault()
+  const clickFn = (e, msg) => {
     console.log(e)
+    console.log(msg)
   }
-  return (
-    <h1 onClick={clickFn}>
-      <a href='https://baidu.com'>跳转</a>
-    </h1>
-  )
+  return <h1 onClick={e => clickFn(e, 'this is msg')}>Click me</h1>
 }
 
 class ClassComponent extends React.Component {
