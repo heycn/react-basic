@@ -1,25 +1,27 @@
 import React from 'react'
 import './index.css'
 
-const FunctionComponent = () => {
-  const clickFn = (e, msg) => {
-    console.log(e)
-    console.log(msg)
+class Demo extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      num: 0
+    }
   }
-  return <h1 onClick={e => clickFn(e, 'this is msg')}>Click me</h1>
-}
 
-class ClassComponent extends React.Component {
+  addNum = () => {
+    this.setState({ num: this.state.num + 1 })
+  }
+
   render() {
-    return <h1>this is ClassComponent</h1>
+    return <button onClick={this.addNum}>{this.state.num}+1</button>
   }
 }
 
 export default function App() {
   return (
     <>
-      <FunctionComponent />
-      <ClassComponent />
+      <Demo />
     </>
   )
 }
