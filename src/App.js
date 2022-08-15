@@ -1,15 +1,26 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './index.css'
 
-const Demo = () => {
+const FunctionComponent = () => {
   return (
-    <h1>this is demo</h1>
+    <h1>this is FunctionComponent</h1>
   )
+}
+
+class ClassComponent extends React.Component {
+  render() {
+    return (
+      <h1>this is ClassComponent</h1>
+    )
+  }
 }
 
 export default function App() {
 
   return (
-    <Demo />
+    <>
+      <FunctionComponent />
+      <ClassComponent />
+    </>
   )
 }
