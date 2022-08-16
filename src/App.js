@@ -1,46 +1,43 @@
-import React, { useState } from 'react'
+import React, { createRef } from 'react'
 
 class Demo1 extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      message: 'this is message'
-    }
+    this.state = {}
   }
 
-  fn = e => this.setState({ message: e.target.value })
+  msgRef = createRef()
+
+  getMsg = () => console.log(this.msgRef.current.value)
 
   render() {
     return (
-      <input
-        type='text'
-        value={this.state.message}
-        onChange={e => this.fn(e)}
-      />
+      <>
+        <input type='text' ref={this.msgRef} />
+        <button onClick={this.getMsg}>get msg</button>
+      </>
     )
   }
 }
 
 const Demo2 = () => {
-  const [message, setMessage] = useState('this is message')
-
-  const changeInput = e => setMessage(e.target.value)
+  const msgRef = createRef()
+  const getMsg = () => console.log(msgRef.current.value)
 
   return (
-    <input
-      type='text'
-      value={message}
-      onChange={e => changeInput(e)}
-    />
+    <>
+      <input type='text' ref={msgRef} />
+      <button onClick={getMsg}>get msg</button>
+    </>
   )
 }
 
 export default function App() {
   return (
     <>
-      Demo1: <Demo1 />
+      <Demo1 />
       <br />
-      Demo2: <Demo2 />
+      <Demo2 />
     </>
   )
 }
