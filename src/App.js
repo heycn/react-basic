@@ -5,24 +5,24 @@ class Demo extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      num: 0
+      message: 'this is message'
     }
   }
 
-  addNum = () => {
-    this.setState({ num: this.state.num + 1 })
-  }
-
-  // 这是错误的写法
-  fn() {
-    console.log(this)
+  fn = e => {
+    this.setState({
+      message: e.target.value
+    })
   }
 
   render() {
     return (
       <>
-        <button onClick={this.addNum}>{this.state.num}+1</button>
-        <button onClick={this.fn}>click</button>
+        <input
+          type='text'
+          value={this.state.message}
+          onChange={e => this.fn(e)}
+        />
       </>
     )
   }
