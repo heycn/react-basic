@@ -1,26 +1,34 @@
-import React, { useState } from 'react'
+import React, { createContext } from 'react'
 
-const Son = ({ getSonMsg }) => {
-  const msg = 'this is sonMsg'
+const { Provider, Consumer } = createContext()
 
-  const clickHandler = () => getSonMsg(msg)
-
+const Parent = () => {
   return (
-    <>
-      {msg}
-      <button onClick={clickHandler}>getSonMsg</button>
-    </>
+    <div style={{ border: '1px solid blue', margin: '16px' }}>
+      Parent
+      <Son />
+    </div>
+  )
+}
+
+const Son = () => {
+  return (
+    <div style={{ border: '1px solid red', margin: '16px' }}>
+      Son, this data:
+      <Consumer>{value => value}</Consumer>
+    </div>
   )
 }
 
 export default function App() {
-  const [msg, setMsg] = useState(void 0)
-  const getSonMsg = sonMsg => setMsg(sonMsg)
+  const data = ` this is App's data`
 
   return (
-    <>
-      <Son getSonMsg={getSonMsg} />
-      <h1>{msg}</h1>
-    </>
+    <Provider value={data}>
+      <div style={{ border: '1px solid black' }}>
+        App
+        <Parent />
+      </div>
+    </Provider>
   )
 }
