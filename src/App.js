@@ -1,27 +1,19 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
+import React from 'react'
 
-const Test = ({ list }) => {
+const Test = props => {
+  const { data = 10 } = props
+
   return (
     <>
-      <div>
-        {list.map(item => (
-          <p key={item}>{item}</p>
-        ))}
-      </div>
+      <div>{data}</div>
     </>
   )
-}
-
-Test.propTypes = {
-  // 自定义规则
-  list: PropTypes.array
 }
 
 export default function App() {
   return (
     <>
-      <Test list={[1, 2, 3]} />
+      <Test data={123} />
     </>
   )
 }
