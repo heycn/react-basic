@@ -7,5 +7,5 @@ export default function useLocalStorage(key: string, defaultValue: string) {
     window.localStorage.setItem(key, message)
   }, [message, key])
 
-  return [message, setMessage]
+  return { message, setMessage }
 }
