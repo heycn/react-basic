@@ -4,6 +4,7 @@ function App() {
   const [message, setMessage] = useLocalStorage('myKey', 'myValue1')
 
   setTimeout(() => {
+    //FIXME: "string | Dispatch<SetStateAction<string>>" 类型的部分要素不可调用。
     setMessage('myValue2')
   }, 2000)
 
