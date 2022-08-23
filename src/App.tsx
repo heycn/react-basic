@@ -1,16 +1,15 @@
-import { useEffect } from 'react'
-import useWindowScroll from './hooks/useWindowScroll'
+import useLocalStorage from './hooks/useLocalStorage'
 
 function App() {
-  const y = useWindowScroll()
+  const [message, setMessage] = useLocalStorage('myKey', 'myValue')
 
-  useEffect(() => {
-    console.log(y)
-  }, [y])
+  setTimeout(() => {
+    setMessage('myValue2')
+  }, 2000)
 
   return (
     <>
-      <div style={{ height: '99999px' }}></div>
+      <h1>{message as string}</h1>
     </>
   )
 }
