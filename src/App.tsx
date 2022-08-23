@@ -1,7 +1,7 @@
 import useLocalStorage from './hooks/useLocalStorage'
 
 function App() {
-  const [message, setMessage] = useLocalStorage('myKey', 'myValue')
+  const [message, setMessage] = useLocalStorage('myKey', 'myValue1')
 
   setTimeout(() => {
     setMessage('myValue2')
